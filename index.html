@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10 школа</title>
+<link rel="stylesheet" href="style.css">
+<style>
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    145deg,
+    #3b1f0c,
+    #4a2a12,
+    #5a3418,
+    #6b4020
+  );
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url(animals.svg);
+  background-repeat: repeat-x;
+  background-position: center top;
+  background-size: auto 100vh;
+  opacity: 0.25;
+  filter: invert(100%) blur(0.4px);
+  transition: background-position 2s ease;
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(255, 180, 90, 0.12),
+      rgba(0, 0, 0, 0.6)
+    );
+  z-index: -1;
+  pointer-events: none;
+}
+
+.sw {
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.pisapopa {
+  width: 100%;
+  padding: min(5vmin, 2rem) min(4vmin, 1.5rem) min(5vmin, 2rem);
+  background: rgba(20, 10, 4, 0.35);
+  border-radius: min(10vmin, 4rem);
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.6),
+    inset 0 0 0 1px rgba(255,255,255,0.04);
+}
+
+img {
+  width: min(60vmin, 25rem);
+  aspect-ratio: 1 / 1;
+  border-radius: min(10vmin, 4rem);
+  box-shadow: 0 0 35px rgba(255, 170, 60, 0.25);
+  margin-bottom: 1vh;
+}
+
+.pr > div {
+  font-weight: 800;
+  font-size: min(8vmin, 3rem);
+}
+
+.s {
+  width: 100%;
+  margin-top: min(5vmin, 1rem);
+}
+
+.st {
+  text-align: center;
+  font-size: min(2.2vmin, 0.7rem);
+  letter-spacing: 1.14em;
+  opacity: 0.85;
+  margin-bottom: min(1.5vmin, 0.5rem);
+}
+
+.l {
+  background: linear-gradient(
+    145deg,
+    #7a3b00,
+    #4b2504
+  );
+  box-shadow:
+    0 6px 18px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+  border: 1px solid rgba(200, 100, 50, 0.5);
+  text-decoration: none;
+  color: #fff;
+
+  font-weight: 500;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.4s ease;
+}
+
+.l:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 12px 28px rgba(0,0,0,0.6);
+}
+
+.l:active {
+  transform: translateY(1px) scale(0.97);
+}
+
+/*матвей лох*/
+
+</style>
+</head>
+<body>
+<div class="sw">
+  <div class="pisapopa">
+
+    <div class="pr">
+      <img src="gl.jpg">
+      <div>10 школа</div>
+    </div>
+
+    <div class="s">
+      <div class="st">︎БАЗИС</div>
+      <div class="lala">
+        <a class="l" href="https://t.me/school10lo">10 школа любит</a>
+        <a class="l" href="https://t.me/school10lo_bot">бот предложка/удаление поста</a>
+      </div>
+    </div>
+
+    <div class="s">
+      <div class="st">︎ДОП</div>
+      <div class="lala">
+        <a class="l" href="https://test.socialapi.serv00.net/#g694550bbabd278c3640753e7">анон чат</a>
+        <a class="l" href="ras.html">расписание</a>
+        <a class="l" href="#">потом</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+@font-face {
+    font-family: 'Copperplate';
+    src: url('Copperplate.woff') format('woff');
+} 
+        
+* { 
+    margin: 0; 
+    box-sizing: border-box; 
+    font-family: "Copperplate", Roboto, sans-serif;  
+}
+
+.sw {
+    width: 80%;
+    max-width: 30.5rem; 
+}
+
+.lala { 
+    display: flex; 
+    flex-direction: column; 
+    gap: min(3vmin, 0.5rem); 
+}
+
+.l {
+    padding: min(3vmin, 1rem);
+    border-radius: min(4vmin, 1rem);
+    font-size: min(3vmin, 1rem);
+    text-align: center;
+    cursor: pointer;
+}
+
+.pisapopa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  .pisapopa {
+    backdrop-filter: blur(1px);
+  }
+}
+
+.pr { 
+    text-align: center; 
+}
+
+.content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.25s ease, opacity 0.2s ease;
+    opacity: 0;
+}
+.content.open { 
+    grid-template-rows: 1fr; 
+    opacity: 1; 
+}
+
+.content > div { 
+    overflow: hidden; 
+}
+
+.content img { 
+    width: 100%; 
+    margin-top: 0.5rem; 
+    border-radius: min(4vmin, 1rem); 
+    cursor: zoom-in; 
+}
+
+.viewer { 
+    position: fixed; 
+    inset: 0; 
+    background: rgba(0,0,0,0.95); 
+    display: none; 
+    align-items: center; 
+    justify-content: center;
+    z-index: 999; 
+}
+
+.viewer.show { 
+    display: flex; 
+}
+
+.viewer img {
+    max-width: 95%;
+    max-height: 95%;
+    border-radius: 1rem; 
+}

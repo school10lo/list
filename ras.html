@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>расписание</title>
+<link rel="stylesheet" href="style.css">
+<style>
+html, body {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background: linear-gradient(160deg, #1f1f1f, #2b2b2b, #3a3a3a);
+  display: flex;
+  justify-content: center;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url(ras/math.svg);
+  background-repeat: repeat-x;
+  background-position: top center;
+  background-size: auto 100vh;
+  opacity: 0.25;
+  filter: invert(100%) blur(0.4px);
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    circle at top,
+    rgba(255,255,255,0.08),
+    rgba(0,0,0,0.65)
+  );
+  z-index: -1;
+}
+
+.sw {
+  padding: min(3vmin, 2rem) min(3vmin, 2rem);
+}
+
+.pisapopa {
+  background: rgba(25,25,25,0.65);
+  border-radius: min(4vmin, 10rem);
+  padding: min(8vmin, 1.5rem) min(15vmin, 1.5rem) min(8vmin, 1rem);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+}
+
+.l {
+  background: linear-gradient(145deg, #4a4a4a, #2f2f2f);
+  border: 1px solid rgba(100, 100, 100);
+  color: #f0f0f0;
+}
+
+.l.active {
+  background: linear-gradient(145deg, #6a6a6a, #404040);
+}
+</style>
+</head>
+
+<body>
+<div class="sw">
+  <div class="pisapopa">
+    <div class="lala">
+      <button class="l" data-id="1">1 класс</button>
+      <div class="content"><div><img src="ras/1.jpg"></div></div>
+      <button class="l" data-id="2">2 класс</button>
+      <div class="content"><div><img src="ras/2.jpg"></div></div>
+      <button class="l" data-id="3">3 класс</button>
+      <div class="content"><div><img src="ras/3.jpg"></div></div>
+      <button class="l" data-id="4">4 класс</button>
+      <div class="content"><div><img src="ras/4.jpg"></div></div>
+      <button class="l" data-id="5">5 класс</button>
+      <div class="content"><div><img src="ras/5.jpg"></div></div>
+      <button class="l" data-id="6">6 класс</button>
+      <div class="content"><div><img src="ras/6.jpg"></div></div>
+      <button class="l" data-id="7">7 класс (есть )</button>
+      <div class="content"><div><img src="ras/7.jpg"></div></div>
+      <button class="l" data-id="8">8 класс</button>
+      <div class="content"><div><img src="ras/8.jpg"></div></div>
+      <button class="l" data-id="9">9 класс (есть)</button>
+      <div class="content"><div><img src="ras/9.jpg"></div></div>
+      <button class="l" data-id="10">10 класс</button>
+      <div class="content"><div><img src="ras/10.jpg"></div></div>
+      <button class="l" data-id="11">11 класс</button>
+      <div class="content"><div><img src="ras/11.jpg"></div></div>
+      <button class="l" data-id="12">12 класс</button>
+      <div class="content"><div><img src="ras/12.jpg"></div></div>
+      <button class="l" data-id="13">13 класс</button>
+      <div class="content"><div><img src="ras/13.jpg"></div></div>
+      <button class="l" data-id="14">14 класс</button>
+      <div class="content"><div><img src="ras/14.jpg"></div></div>
+      <button class="l" data-id="15">15 класс</button>
+      <div class="content"><div><img src="ras/15.jpg"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="viewer" id="viewer"><img></div>
+
+<script>
+const buttons = Array.from(document.querySelectorAll('.l'));
+const viewer = document.getElementById('viewer');
+const viewerImg = viewer.querySelector('img');
+
+function closeAll() {
+  buttons.forEach(b => {
+    b.classList.remove('active');
+    if (b.nextElementSibling) b.nextElementSibling.classList.remove('open');
+  });
+}
+
+buttons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const open = btn.classList.contains('active');
+    closeAll();
+
+     if (!open) {
+        btn.classList.add('active');
+     if (btn.nextElementSibling) btn.nextElementSibling.classList.add('open');
+         localStorage.setItem('open', btn.dataset.id);
+     } else {
+         localStorage.removeItem('open');
+  }});
+});
+
+document.querySelectorAll('.content img').forEach(img => {
+  img.addEventListener('click', () => {
+    viewerImg.src = img.src;
+    viewer.classList.add('show');
+  });
+});
+
+viewer.addEventListener('click', () => viewer.classList.remove('show'));
+
+const saved = localStorage.getItem('open');
+if (saved) {
+  const btn = document.querySelector(`.l[data-id="${saved}"]`);
+  if (btn) btn.click();
+}
+</script>
+</body>
+</html>
