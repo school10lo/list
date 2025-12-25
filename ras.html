@@ -6,11 +6,6 @@
 <title>расписание</title>
 <link rel="stylesheet" href="style.css">
 <style>
-html, body {
-  width: 100%;
-  overflow-x: hidden;
-}
-
 body {
   background: linear-gradient(160deg, #1f1f1f, #2b2b2b, #3a3a3a);
 }
@@ -29,56 +24,109 @@ body::after {
 
 .pisapopa {
   background: rgba(25,25,25,0.65);
-  padding: min(8vmin, 1.5rem) min(15vmin, 1.5rem) min(8vmin, 1rem);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.7);
 }
 
 .l {
   background: linear-gradient(145deg, #4a4a4a, #2f2f2f);
   border: 1px solid rgba(100, 100, 100);
-  color: #fff;
 }
 
 .l.active {
   background: linear-gradient(145deg, #6a6a6a, #404040);
 }
+
+.hint {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.hint-box {
+  background: rgba(30,30,30,0.85);
+  border-radius: min(4vmin, 2rem);
+  padding: min(2vmin, 0.5rem);
+  max-width: 27rem;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+  width: 85%;
+}
+
+.hint-title {
+  font-size: min(10vmin, 2.25rem);
+  margin-top: min(1vmin, 0.5rem);
+  padding-left: min(3vmin, 1.5rem);
+}
+
+.hint-text {
+  font-size: min(5vmin, 1.25rem);
+  opacity: 0.85;
+  margin-bottom: min(3vmin, 1rem);
+  padding-left: min(1vmin, 1rem);
+}
+
+.content {
+  width: 100%;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.28s ease, opacity 0.18s ease;
+}
+
+.content.open {
+  max-height: 80vh;
+  opacity: 1;
+}
+
+.content > div {
+  display: flex;
+  justify-content: center;
+}
+
+.content img {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 0.5rem;
+  border-radius: min(4vmin, 1rem);
+}
+
+.viewer {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.viewer.show {
+  display: flex;
+}
+
+.viewer img {
+  max-width: 95%;
+  max-height: 95%;
+  object-fit: contain;
+} 
 </style>
 </head>
-
 <body>
+<div class="hint" id="hint">
+  <div class="hint-box">
+    <div class="hint-title">добраутра</div>
+    <div class="hint-text">
+     • это кнопки<br>
+     • нажми на фото, чтобы открыть полностью
+    </div>
+    <button class="l hint-btn">оке</button>
+  </div>
+</div> 
 <div class="sw">
   <div class="pisapopa">
-    <div class="lala">
-      <button class="l" data-id="1">1 класс</button>
-      <div class="content"><div><img src="ras/1.jpg" loading="lazy" decoding="async" alt="нету"></div></div>
-      <button class="l" data-id="2">2 класс</button>
-      <div class="content"><div><img src="ras/2.jpg" loading="lazy" decoding="async" alt="нету"></div></div>
-      <button class="l" data-id="3">3 класс</button>
-      <div class="content"><div><img src="ras/3.jpg" loading="lazy" decoding="async" alt="нету"></div></div>
-      <button class="l" data-id="4">4 класс</button>
-      <div class="content"><div><img src="ras/4.jpg" loading="lazy" decoding="async" alt="нету"></div></div>
-      <button class="l" data-id="5">5 класс</button>
-      <div class="content"><div><img src="ras/5.jpg" loading="lazy" decoding="async" alt="нету"></div></div>
-      <button class="l" data-id="6">6 класс</button>
-      <div class="content"><div><img src="ras/6.jpg" loading="lazy" decoding="async" alt="нету"></div></div>
-      <button class="l" data-id="7">7 класс</button>
-      <div class="content"><div><img src="ras/7.jpg" loading="lazy" decoding="async" alt="лялялялял"></div></div>
-      <button class="l" data-id="8">8 класс</button>
-      <div class="content"><div><img src="ras/8.jpg" loading="lazy" decoding="async" alt="нету"></div></div>
-      <button class="l" data-id="9">9 класс</button>
-      <div class="content"><div><img src="ras/9.jpg" loading="lazy" decoding="async" alt="ялялляля"></div></div>
-      <button class="l" data-id="10">10 класс</button>
-      <div class="content"><div><img src="ras/10.jpg" loading="lazy" decoding="async" alt="нету"></div></div>
-      <button class="l" data-id="11">11 класс</button>
-      <div class="content"><div><img src="ras/11.jpg" loading="lazy" decoding="async" alt="нету"></div></div>
-      <button class="l" data-id="12">12 класс</button>
-      <div class="content"><div><img src="ras/12.jpg" loading="lazy" decoding="async" alt="нету"></div></div>
-      <button class="l" data-id="13">13 класс</button>
-      <div class="content"><div><img src="ras/13.jpg" loading="lazy" decoding="async" alt="нету"></div></div>
-      <button class="l" data-id="14">14 класс</button>
-      <div class="content"><div><img src="ras/14.jpg" loading="lazy" decoding="async" alt="нету"></div></div>
-      <button class="l" data-id="15">15 класс</button>
-      <div class="content"><div><img src="ras/15.jpg" loading="lazy" decoding="async" alt="нету"></div></div>
+    <div class="lala" id="lala">
     </div>
   </div>
 </div>
@@ -86,53 +134,84 @@ body::after {
 <div class="viewer" id="viewer"><img decoding="async" alt="просмотр"></div>
 
 <script>
-(() => {
-  const lala = document.querySelector('.lala');
-  const viewer = document.getElementById('viewer');
-  const viewerImg = viewer.querySelector('img');
+const data = [
+  { id: 5, label: '5 класс' },
+  { id: 7, label: '7 класс' },
+  { id: 8, label: '8 класс' },
+  { id: 9, label: '9 класс' },
+  { id: 1011, label: '10 и 11 класс' },
+  { id: '6_2', label: '6 класс 2 смена' },
+  { id: '7_2', label: '7 класс 2 смена' },
+];
 
-  function closeAll() {
-    document.querySelectorAll('.l').forEach(b => {
-      b.classList.remove('active');
-      if (b.nextElementSibling) b.nextElementSibling.classList.remove('open');
-    });
-  }
+const wrap   = document.getElementById('lala');
+const viewer = document.getElementById('viewer');
+const vImg   = viewer.querySelector('img');
+const hint   = document.getElementById('hint');
 
-  // Event delegation: one listener for buttons and image clicks
-  lala.addEventListener('click', (e) => {
-    const btn = e.target.closest('.l');
-    if (btn && lala.contains(btn)) {
-      const wasOpen = btn.classList.contains('active');
-      closeAll();
-      if (!wasOpen) {
-        btn.classList.add('active');
-        const content = btn.nextElementSibling;
-        if (content) content.classList.add('open');
-        try { localStorage.setItem('open', btn.dataset.id); } catch(_) {}
-      } else {
-        try { localStorage.removeItem('open'); } catch(_) {}
-      }
-      return;
-    }
+if (hint && localStorage.getItem('hintClosed')) {
+  hint.remove();
+}
 
-    const img = e.target.closest('.content img');
-    if (img) {
-      viewerImg.src = img.src;
-      viewer.classList.add('show');
-    }
+if (hint) {
+  const btn = hint.querySelector('.hint-btn');
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    localStorage.setItem('hintClosed', '1');
+    hint.remove();
   });
+}
 
-  viewer.addEventListener('click', () => viewer.classList.remove('show'));
+data.forEach(({ id, label }) => {
+  wrap.insertAdjacentHTML('beforeend', `
+    <button class="l" data-id="${id}">${label}</button>
+    <div class="content">
+      <div><img src="ras/${id}.jpg" loading="lazy"></div>
+    </div>
+  `);
+});
 
-  // restore open state
-  try {
-    const saved = localStorage.getItem('open');
-    if (saved) {
-      const btn = document.querySelector(`.l[data-id="${saved}"]`);
-      if (btn) btn.classList.add('active'), btn.nextElementSibling?.classList.add('open');
-    }
-  } catch(_) {}
-})();
+function closeAll() {
+  wrap.querySelectorAll('.l.active').forEach(b => {
+    b.classList.remove('active');
+    b.nextElementSibling.classList.remove('open');
+  });
+}
+
+wrap.addEventListener('click', e => {
+  const btn = e.target.closest('.l');
+  if (!btn || !wrap.contains(btn)) return;
+
+  const opened = btn.classList.contains('active');
+  closeAll();
+
+  if (!opened) {
+    btn.classList.add('active');
+    btn.nextElementSibling.classList.add('open');
+    localStorage.setItem('open', btn.dataset.id);
+  } else {
+    localStorage.removeItem('open');
+  }
+});
+
+wrap.addEventListener('click', e => {
+  const img = e.target.closest('.content img');
+  if (!img) return;
+
+  e.stopPropagation();
+  vImg.src = img.src;
+  viewer.classList.add('show');
+});
+
+viewer.addEventListener('click', () => {
+  viewer.classList.remove('show');
+});
+
+const saved = localStorage.getItem('open');
+if (saved) {
+  const btn = wrap.querySelector(`.l[data-id="${saved}"]`);
+  btn?.click();
+}
 </script>
 </body>
 </html>

@@ -11,12 +11,14 @@
 
 html, body {
   min-height: 100%;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 body {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; 
   color: #fff;
 }
 
@@ -32,6 +34,7 @@ body {
   width: 100%;
   text-align: center;
   border-radius: min(6vmin, 3rem);
+  padding: min(5vmin, 2rem) min(4vmin, 1.5rem) min(5vmin, 2rem);
 }
 
 @supports (backdrop-filter: blur(1px)) {
@@ -75,54 +78,10 @@ body::after {
   font-size: min(3vmin, 1rem);
   cursor: pointer;
   text-decoration: none;
-}
-
-.content {
-  width: 100%;
-  overflow: hidden;
-  max-height: 0;
-  opacity: 0;
-  transition: max-height 0.28s ease, opacity 0.18s ease;
-}
-
-.content.open {
-  max-height: 1200px;
-  opacity: 1;
-}
-
-.content > div {
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-}
-
-.content img {
-  width: 100%;
-  max-width: 100%;
-  margin-top: 0.5rem;
-  border-radius: min(4vmin, 1rem);
-  cursor: zoom-in;
-}
-
-.viewer {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.95);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
-}
-
-.viewer.show {
-  display: flex;
-}
-
-.viewer img {
-  min-width: 70%;
-  border-radius: 1rem;
+  color: #fff;
 }
 
 ::-webkit-scrollbar { width: 0; height: 0; }
 html { scrollbar-width: none; }
 body { -ms-overflow-style: none; }
+button { -webkit-tap-highlight-color: transparent; background-color: none; }
