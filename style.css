@@ -89,4 +89,4 @@ body::after {
 ::-webkit-scrollbar { width: 0; height: 0; }
 html { scrollbar-width: none; }
 body { -ms-overflow-style: none; }
-button { -webkit-tap-highlight-color: transparent; background-color: none; }
+button, div { -webkit-tap-highlight-color: transparent; background-color: none; }
