@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Правила</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body {
+  background: linear-gradient(
+    145deg,
+    #25BEBE,
+    #07B0B0,
+    #43ECE6,
+    #62F2EB
+  );
+}
+
+body::before {
+  background-image: url(cats_and_dogs.svg); 
+  filter: invert(0%);
+}
+
+body::after {
+  background: radial-gradient(
+    circle at top,
+    rgba(120, 255, 255, 0.18),
+    rgba(0, 0, 0, 0.6)
+  );
+}
+
+.pisapopa {
+  background: rgba(10, 40, 40, 0.5);
+}
+
+.rule {
+  text-align: left;
+}
+
+.tt {
+  padding-bottom: min(2vmin, 0.7rem);
+}
+
+.bb {
+  background: rgba(5, 30, 30, 0.5);
+  border-radius: min(3vmin, 1rem);
+  padding: min(3vmin, 2rem);
+  box-shadow:
+    inset 0 0 0 1px rgba(120,255,255,0.08),
+    0 6px 18px rgba(0,0,0,0.35);
+} 
+
+.l .bb {
+  background: rgba(6 , 35, 35, 0.3);
+  font-weight: 600;
+  margin-top: min(2vmin, 1rem);
+}
+
+.l {
+  margin-bottom: min(2vmin, 1rem);
+}
+</style>
+</head>
+<body>
+<div class="sw">
+  <div class="pisapopa">
+    <div class="tt">добраутра,<br>правила</div>
+    <div class="rule">
+      <div class="l bb">1. хочу рассказать немного о правилах, которые требуется соблюдать: <div class="bb">если вдруг вы не сразу увидели своё сообщение, это значит, что админ занят, и опубликует его чуть позже</div><div class="bb">если ваше сообщение не выкладывают, то значит оно нарушает правила и это не повод отправлять его заново</div></div>
+      <div class="l bb">2. Мы не публикуем сообщения содержащие:<div class="bb">сообщения прямыми оскорблениями, да и тут грань этого настолько размыта что там по ситуации </div></div>
+      <div class="l bb">3. Блокировка пользователей:<div class="bb">спам и штуки похожуже это сразу бан, наверное раз первый разбаню, а потом неь</div></div>
+      <div class="l bb">Если отправленное сообщение звучит оскорбительно для вас, немедленно обратитесь к админам. Мы обязательно удалим данный пост.</div>
+      <div class="l bb">Подумайте, прежде чем отправлять сообщение или писать комментарий</div>
+    </div>
+  </div>
+</div>
+</body>
+</html> 

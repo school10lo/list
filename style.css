@@ -10,7 +10,7 @@
 }
 
 html, body {
-  min-height: 100%;
+  min-height: 100dvh;
   width: 100%;
   overflow-x: hidden;
 }
@@ -22,9 +22,14 @@ body {
   color: #fff;
 }
 
+.tt {
+  font-weight: 800;
+  font-size: min(10vmin, 4.5rem);
+}
+
 .sw {
   width: 90%;
-  max-width: 42rem;
+  max-width: 50rem;
   padding: min(3vmin, 2rem);
   display: flex;
   justify-content: center;
@@ -34,18 +39,18 @@ body {
   width: 100%;
   text-align: center;
   border-radius: min(6vmin, 3rem);
-  padding: min(5vmin, 2rem) min(4vmin, 1.5rem) min(5vmin, 2rem);
+  padding: min(5vmin, 2rem);
 }
 
-@supports (backdrop-filter: blur(1px)) {
+@supports (backdrop-filter: blur(0.4px)) {
   .pisapopa {
-    backdrop-filter: blur(1px);
+    backdrop-filter: blur(0.4px);
   }
 }
 
 body::before {
   content: "";
-  position: fixed;
+ position: fixed;
   inset: 0;
   background-repeat: repeat-x;
   background-position: center top;
@@ -58,7 +63,7 @@ body::before {
 
 body::after {
   content: "";
-  position: fixed;
+  position:fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
@@ -75,7 +80,7 @@ body::after {
   width: 100%;
   padding: min(3vmin, 1rem);
   border-radius: min(4vmin, 1rem);
-  font-size: min(3vmin, 1rem);
+  font-size: min(4vmin, 1.5rem);
   cursor: pointer;
   text-decoration: none;
   color: #fff;
