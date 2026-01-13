@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Правила</title>
-<link rel="stylesheet" href="style.css">
 <style>
 body {
   background: linear-gradient(
@@ -19,18 +18,19 @@ body {
 body::before {
   background-image: url(cats_and_dogs.svg); 
   filter: invert(0%);
+  opacity: .5
 }
 
 body::after {
   background: radial-gradient(
     circle at top,
-    rgba(120, 255, 255, 0.18),
-    rgba(0, 0, 0, 0.6)
+    rgba(120, 255, 255, .18),
+    rgba(0, 0, 0, .6)
   );
 }
 
 .pisapopa {
-  background: rgba(10, 40, 40, 0.5);
+  background: rgba(10, 40, 40, .5);
 }
 
 .rule {
@@ -38,20 +38,20 @@ body::after {
 }
 
 .tt {
-  padding-bottom: min(2vmin, 0.7rem);
+  padding-bottom: min(2vmin, .7rem);
 }
 
 .bb {
-  background: rgba(5, 30, 30, 0.5);
+  background: rgba(5, 30, 30, .5);
   border-radius: min(3vmin, 1rem);
   padding: min(3vmin, 2rem);
   box-shadow:
-    inset 0 0 0 1px rgba(120,255,255,0.08),
-    0 6px 18px rgba(0,0,0,0.35);
+    inset 0 0 0 1px rgba(120,255,255,.08),
+    0 6px 18px rgba(0,0,0,.35);
 } 
 
 .l .bb {
-  background: rgba(6 , 35, 35, 0.3);
+  background: rgba(6 , 35, 35, .3);
   font-weight: 600;
   margin-top: min(2vmin, 1rem);
 }
@@ -59,6 +59,100 @@ body::after {
 .l {
   margin-bottom: min(2vmin, 1rem);
 }
+
+
+@font-face {
+  font-family: 'Copperplate';
+  src: url('Copperplate.woff') format('woff');
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Copperplate", Roboto, sans-serif;
+}
+
+html, body {
+  min-height: 100dvh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; 
+  color: #fff;
+}
+
+.tt {
+  font-weight: 800;
+  font-size: min(10vmin, 4.5rem);
+}
+
+.sw {
+  width: 90%;
+  max-width: 50rem;
+  padding: min(3vmin, 2rem);
+  display: flex;
+  justify-content: center;
+}
+
+.pisapopa {
+  width: 100%;
+  text-align: center;
+  border-radius: min(6vmin, 3rem);
+  padding: min(5vmin, 2rem);
+}
+
+@supports (backdrop-filter: blur(.8px)) {
+  .pisapopa {
+    backdrop-filter: blur(.8px);
+  }
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-repeat: repeat-x;
+  background-position: center top;
+  background-size: auto 100vh;
+  opacity: .25;
+  filter: invert(100%);
+  transition: background-position 2s ease;
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+  position:fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.lala {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: min(3vmin, .5rem);
+}
+
+.l {
+  width: 100%;
+  padding: min(3vmin, 1rem);
+  border-radius: min(4vmin, 1rem);
+  font-size: min(4vmin, 1.5rem);
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+}
+
+::-webkit-scrollbar { width: 0; height: 0; }
+html { scrollbar-width: none; }
+body { -ms-overflow-style: none; }
+button, div { -webkit-tap-highlight-color: transparent; background-color: none; }
 </style>
 </head>
 <body>
