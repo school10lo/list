@@ -1,0 +1,92 @@
+@font-face {
+  font-family: 'Copperplate';
+  src: url('Copperplate.woff') format('woff');
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Copperplate", Roboto, sans-serif;
+}
+
+html, body {
+  min-height: 100dvh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; 
+  color: #fff;
+}
+
+.tt {
+  font-weight: 800;
+  font-size: min(10vmin, 4.5rem);
+}
+
+.sw {
+  width: 90%;
+  max-width: 50rem;
+  padding: min(3vmin, 2rem);
+  display: flex;
+  justify-content: center;
+}
+
+.pisapopa {
+  width: 100%;
+  text-align: center;
+  border-radius: min(6vmin, 3rem);
+  padding: min(5vmin, 2rem);
+}
+
+@supports (backdrop-filter: blur(.8px)) {
+  .pisapopa {
+    backdrop-filter: blur(.8px);
+  }
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-repeat: repeat-x;
+  background-position: center top;
+  background-size: auto 100vh;
+  opacity: .25;
+  filter: invert(100%);
+  transition: background-position 2s ease;
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+  position:fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.lala {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: min(3vmin, .5rem);
+}
+
+.l {
+  width: 100%;
+  padding: min(3vmin, 1rem);
+  border-radius: min(4vmin, 1rem);
+  font-size: min(4vmin, 1.5rem);
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+}
+
+::-webkit-scrollbar { width: 0; height: 0; }
+html { scrollbar-width: none; }
+body { -ms-overflow-style: none; }
+button, div { -webkit-tap-highlight-color: transparent; background-color: none; }

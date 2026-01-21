@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#121212">
+    <meta name="description" content="Расписание">
+    <link rel="icon" type="image/png" href="./gl.jpg">
+    <title>Расписание</title>
+<link rel="stylesheet" href="./style.css">
+<style>
+body {
+  background: linear-gradient(160deg, #1f1f1f, #2b2b2b, #3a3a3a);
+}
+
+body::before {
+  background-image: url(ras/math.svg);
+}
+
+body::after {
+  background: radial-gradient(
+    circle at top,
+    rgba(255,255,255,.08),
+    rgba(0,0,0,.65)
+  );
+}
+
+.pisapopa {
+  background: rgba(25,25,25,.65);
+}
+
+.l {
+  background: linear-gradient(145deg, #4a4a4a, #2f2f2f);
+  border: 1px solid rgba(100, 100, 100);
+}
+
+.l.active {
+  background: linear-gradient(145deg, #6a6a6a, #404040);
+}
+
+.hint {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.hint-box {
+  background: rgba(30,30,30,.85);
+  border-radius: min(4vmin, 2rem);
+  padding: min(2vmin, .5rem);
+  max-width: 35rem;
+  box-shadow: 0 20px 60px rgba(0,0,0,.7);
+  width: 85%;
+}
+
+.hint-title {
+  font-size: min(10vmin, 2.25rem);
+  margin-top: min(1vmin, .5rem);
+  padding-left: min(3vmin, 1.5rem);
+}
+
+.hint-text {
+  font-size: min(5vmin, 1.25rem);
+  opacity: .85;
+  margin-bottom: min(3vmin, 1rem);
+  padding-left: min(1vmin, 1rem);
+}
+
+.content {
+  width: 100%;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height .28s ease, opacity .18s ease;
+}
+
+.content.open {
+  max-height: 800vh;
+  opacity: 1;
+}
+
+.content > div {
+  display: flex;
+  justify-content: center;
+}
+
+  .pisapopa {
+    backdrop-filter: blur(0px);
+  }
+
+.content img {
+  width: 100%;
+  max-width: 100%;
+  margin-top: .5rem;
+  border-radius: min(4vmin, 1rem);
+}
+
+.viewer {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.95);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.viewer.show {
+  display: flex;
+}
+
+.viewer img {
+  min-height: 95%;
+  max-height: 95%;
+  max-width: 95%;
+  object-fit: contain;
+} 
+</style>
+</head>
+<body>
+<div class="hint" id="hint">
+  <div class="hint-box">
+    <div class="hint-title">добраутра</div>
+    <div class="hint-text">
+     ︎ • это кнопки<br>
+     ︎ • нажми на фото, чтобы открыть полностью<br><br>
+    ︎ ■ отсутвующие расписание можно скинуть в предложку канала<br>
+    ︎ ■ чтобы было удобнее, можно добавить это на главный экран. здесь также сохраняется открытое расписание
+    </div>
+    <button class="l hint-btn">оке</button>
+  </div>
+</div> 
+<div class="sw">
+  <div class="pisapopa">
+    <div class="lala" id="lala">
+    </div>
+  </div>
+</div>
+
+<div class="viewer" id="viewer"><img decoding="async" alt="просмотр"></div>
+
+<script>
+const data = [
+  { id: 5, label: '5 класс' },
+  { id: 7, label: '7 класс' },
+  { id: 8, label: '8 класс' },
+  { id: 9, label: '9 класс' },
+  { id: 1011, label: '10 и 11 класс' },
+  { id: '6_2', label: '6 класс 2 смена' },
+  { id: '7_2', label: '7 класс 2 смена' },
+];
+
+const wrap   = document.getElementById('lala');
+const viewer = document.getElementById('viewer');
+const vImg   = viewer.querySelector('img');
+const hint   = document.getElementById('hint');
+
+if (hint && localStorage.getItem('hintClosed')) {
+  hint.remove();
+}
+
+if (hint) {
+  const btn = hint.querySelector('.hint-btn');
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    localStorage.setItem('hintClosed', '1');
+    hint.remove();
+  });
+}
+
+data.forEach(({ id, label }) => {
+  wrap.insertAdjacentHTML('beforeend', `
+    <button class="l" data-id="${id}">${label}</button>
+    <div class="content">
+      <div><img src="ras/${id}.jpg" loading="lazy"></div>
+    </div>
+  `);
+});
+
+function closeAll() {
+  wrap.querySelectorAll('.l.active').forEach(b => {
+    b.classList.remove('active');
+    b.nextElementSibling.classList.remove('open');
+  });
+}
+
+wrap.addEventListener('click', e => {
+  const btn = e.target.closest('.l');
+  if (!btn || !wrap.contains(btn)) return;
+
+  const opened = btn.classList.contains('active');
+  closeAll();
+
+  if (!opened) {
+    btn.classList.add('active');
+    btn.nextElementSibling.classList.add('open');
+    localStorage.setItem('open', btn.dataset.id);
+  } else {
+    localStorage.removeItem('open');
+  }
+});
+
+wrap.addEventListener('click', e => {
+  const img = e.target.closest('.content img');
+  if (!img) return;
+
+  e.stopPropagation();
+  vImg.src = img.src;
+  viewer.classList.add('show');
+});
+
+viewer.addEventListener('click', () => {
+  viewer.classList.remove('show');
+});
+
+const saved = localStorage.getItem('open');
+if (saved) {
+  const btn = wrap.querySelector(`.l[data-id="${saved}"]`);
+  btn?.click();
+}
+</script>
+</body>
+</html>
