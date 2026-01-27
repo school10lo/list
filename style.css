@@ -3,6 +3,11 @@
   src: url('Copperplate.woff') format('woff');
 }
 
+@font-face {
+  font-family: 'Ponter';
+  src: url('PonterALT.woff') format('woff');
+}
+
 * {
   margin: 0;
   box-sizing: border-box;
@@ -23,13 +28,15 @@ body {
 }
 
 .tt {
-  font-weight: 800;
-  font-size: min(10vmin, 4.5rem);
+  font-weight: 900;
+  font-size: min(11vmin, 6rem);
+  font-family: "Ponter", Roboto, sans-serif;
+  letter-spacing: .1em;
 }
 
 .sw {
   width: 90%;
-  max-width: 50rem;
+  max-width: 45rem;
   padding: min(3vmin, 2rem);
   display: flex;
   justify-content: center;
