@@ -41,9 +41,9 @@ body::after {
 
 .tt {
   font-weight: 900;
-  font-size: min(13vmin, 6rem);
+  font-size: min(16vmin, 7rem);
   font-family: "Ponter", Roboto, sans-serif;
-  transform: scaleX(1.5);
+  transform: scaleX(1.25);
 }
 
 .sw {
@@ -68,7 +68,7 @@ body::after {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: min(3vmin, .5rem);
+  gap: min(1vmin, .5rem);
   margin-top: min(4vmin, 1rem);}
 .l {
   width: 100%;
