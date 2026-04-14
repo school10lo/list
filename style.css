@@ -78,7 +78,7 @@ body::after {
 .l {
   width: 95%;
   padding: min(2vmin, 1rem) 0;
-  border-radius: min(4vmin, 1rem);
+  border-radius: min(3vmin, 1rem);
   font-size: min(6vmin, 2rem);
   text-decoration: none;
   color: #fff;
