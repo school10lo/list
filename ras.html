@@ -14,91 +14,53 @@
     <title>Расписание</title>
 <link rel="stylesheet" href="./style.css">
 <style>
-body {
-  background: linear-gradient(160deg, #1f1f1f, #2b2b2b, #3a3a3a);
-}
-body::before {
-  background-image: url(ras/math.svg);}
-body::after {
-  background: radial-gradient(
-    circle at top,
-    rgba(255,255,255,.08),
-    rgba(0,0,0,.65)
-  );}
 
+body {
+  background: linear-gradient( 145deg,#3a1c07,#472307,#542a0c,#562c0c);
+  position: relative;
+}
+
+body::before {
+  background-image: url(animals.svg);
+}
+
+body::after {
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(255, 180, 90, .12),
+      rgba(0, 0, 0, .6)
+    );
+}
 
 .pisapopa {
-  background: rgba(25,25,25,.65);
-  backdrop-filter: blur(0px);
+  background: radial-gradient(ellipse at center, rgba(26, 10, 1, 0.79) 0%, rgba(20, 10, 4, 0.38) 75%);
 }
 
+img {
+  width: 100%;
+  border-radius: min(6vmin, 3rem);
+  box-shadow: 0 0 4vmin rgba(0, 0, 0, 0.5);
+  border: min(.5vmin, 2px) solid rgb(201, 90, 36);
+}
+
+div .p {
+  font-size: min(2vmin, 1rem);
+  opacity: .6;
+}
 
 .l {
-  background: linear-gradient(145deg, #4a4a4a5c, #2f2f2f66);
-  border: min(.5vmin, 2px) solid rgba(205, 205, 205, 0.38);
-  font-family: "Ponter", Roboto, sans-serif;
-} 
-.lala { margin: 0; } 
-.l.hint-btn { background: linear-gradient(166deg, #dfdfdf57, #25252575);}
-.l.active { display: none}
-.lala.w {gap: .5vmin}
-.lala.a {gap: 1vmin}
-
-
-.content {
-  overflow: hidden;
-  max-height: 0;
-}
-.content.open {
-  max-height: 800vh;
-  opacity: 1;
-  transition: max-height 0.25s cubic-bezier(.95,.05,.8,.04);
-}
-.content img {
-  width: 100%;
-  border-radius: min(4vmin, 1rem);
-  border: min(.5vmin, 2px) outset rgb(106, 106, 106);
-}
-
-
-.hint {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.65);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;}
-.hint-box {
-  background: linear-gradient(-147deg, #343434ab, #0f0f0fbd);
-  border-radius: min(4vmin, 1rem);
-  padding: min(2vmin, .5rem);
-  max-width: min(85%,45rem);
-  border: .2vmin solid rgba(100, 100, 100);
-  backdrop-filter: blur(2px);}
-.hint-text {
+  background: linear-gradient( 145deg, #7a3b0061, #4b250447);
+  border: min(.5vmin, 2px) solid rgba(200, 99, 50, 0.64);
   font-size: min(5vmin, 2rem);
-  opacity: .85;
-  margin: 1vmin;
-  letter-spacing: -0.05em;
-  line-height: .9em;}
+}
 
+.l:active {
+  transform: translateY(1px) scale(.97);
+}
 
-.viewer {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.95);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;}
-.viewer.show {
-  display: flex;}
-.viewer img {
-  min-height: 95%;
-  max-height: 95%;
-  max-width: 95%;
-  object-fit: contain;}
+/*матвей лох*/
+
 </style>
 </head>
 <body>
