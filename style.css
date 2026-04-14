@@ -22,14 +22,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start; 
-  color: #fff;}
+  color: #fff;
+}
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   background-repeat: repeat-x;
   background-position: center top;
-  background-size: auto 100vh;
+  background-size: auto auto;
   opacity: .25;
   filter: invert(100%);
   transition: background-position 2s ease;
@@ -52,7 +53,7 @@ body::after {
 
 .sw {
   width: 100%;
-  max-width: 45rem;
+  max-width: 60rem;
   padding: min(3vmin, 2rem);
   display: flex;
   justify-content: center;
@@ -74,9 +75,9 @@ body::after {
   margin-top: min(4vmin, 1rem);}
 .l {
   width: 100%;
-  padding: min(2vmin, 1rem);
-  border-radius: min(3vmin, 1rem);
-  font-size: min(5vmin, 2rem);
+  padding: min(2vmin, 1rem) 0;
+  border-radius: min(5vmin, 1rem);
+  font-size: min(5vmin, 3rem);
   text-decoration: none;
   color: #fff;
 }
